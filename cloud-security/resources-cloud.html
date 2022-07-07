@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>resources-cloud.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h3 id="resourceslinkstools">Resources/Links/Tools</h3>
+<h4 id="module-1">Module 1</h4>
+<ul>
+<li><a href="https://fidelissecurity.com/threatgeek/archive/aws-security-best-practices-aws-cloud-security-report-2020/">AWS Security Best Practices: Cloud Security Report 2020 for InfoSec</a></li>
+<li><a href="https://cloudsecurityalliance.org/research/cloud-controls-matrix/">Cloud Security Alliance Controls Matrix</a></li>
+<li><a href="https://cloudsecurityalliance.org/research/guidance/">CSA Security Guidance for Critical Areas of Focus in Cloud Computing</a></li>
+<li><a href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=909505">NIST SP 500-292</a></li>
+</ul>
+<h4 id="module-2">Module 2</h4>
+<ul>
+<li><a href="https://docs.docker.com/engine/security/?msclkid=b180f209ba5a11ec86ffcf3bc12269d7">Docker security | Docker Documentation</a></li>
+<li><a href="https://trustedcomputinggroup.org/wp-content/uploads/Introduction-to-Trusted-Computing-Concepts-and-TPM-.pdf#:~:text=Trusted%20Computing%20is%20the%20simplest%20method%20of%20providing,This%20is%20the%20most%20liberal%20method%20of%20protection">Trusted Computing Group</a></li>
+<li><a href="https://owasp.org/www-project-serverless-top-10/?msclkid=7049aefebb3a11ec842d1d1918e05d0e">OWASP Serverless Top 10 | OWASP Foundation</a></li>
+<li><a href="https://www.cio.com/article/253268/cloud-computing-how-to-survive-4-cloud-horror-stories.html">How to Survive 4 Cloud Horror Story Scenarios</a></li>
+<li><a href="https://github.com/OWASP/www-project-zap">OWASP/www-project-zap: OWASP Zed Attack Proxy project landing page.</a></li>
+<li><a href="https://github.com/i3visio/osrframework/blob/master/doc/INSTALL.md">osrframework/INSTALL.md at master · i3visio/osrframework</a></li>
+<li><a href="https://privacy.sexy/">Privacy is sexy 🍑🍆 - Enforce privacy &amp; security on Windows and macOS</a></li>
+<li><a href="https://sysdig.com/">Sysdig | Security Tools for Containers, Kubernetes, &amp; Cloud</a></li>
+<li><a href="https://rhinosecuritylabs.com/aws/pacu-open-source-aws-exploitation-framework/">Pacu: The Open Source AWS Exploitation Framework - Rhino Security Labs</a></li>
+<li><a href="https://github.com/cr0hn/dockerscan">cr0hn/dockerscan: Docker security analysis &amp; hacking tools</a></li>
+<li><a href="https://github.com/sa7mon/S3Scanner">S3Scanner</a></li>
+<li><a href="https://rhinosecuritylabs.com/aws/pacu-open-source-aws-exploitation-framework/">Pentesting AWS in the Cloud</a></li>
+<li><a href="https://rhinosecuritylabs.com/aws/cloudgoat-vulnerable-design-aws-environment/">CloudGoat Vulnerable by Design</a></li>
+<li><a href="https://jfrog.com/knowledge-base/3-essential-steps-to-securing-your-docker-container-deployments/?msclkid=b181896bba5a11ecb4a3973fd777b210">3 Essential Steps to Securing Your Docker Container Deployments</a></li>
+</ul>
+<h3 id="study-questions">Study Questions</h3>
+<ol>
+<li>Salesforce CRM and Microsoft 365 are two examples of which cloud computing service type?
+a. IaaS
+b. PaaS
+c. SaaS
+d. Public</li>
+<li>Which cloud offering relies on the customer having the most responsibilty?
+a. SaaS
+b. PaaS
+c. IaaS
+d. Public</li>
+<li>Which of these might be a concern when moving services to a cloud provider?
+a. Multiple user accounts
+b. Lack of Transport Layer Encryption
+c. Lack of fault tolerance in the cloud
+d. Inability to implement security controls</li>
+<li>By default, what privilege level does a docker container run at?
+a. User
+b. System
+c. Session
+d. Root</li>
+<li>What can be used to audit Docker container
+a. Docker Hub
+b. Docker Content Trust
+c. Docker Bench Security
+d. Docker swarm</li>
+</ol>
+<h4 id="answers">Answers</h4>
+<ol>
+<li>(c) Customer is pay for a subscription based service.</li>
+<li>(c) IaaS requires the most customer responsibility at they are responsible for everything above the hardware layer.</li>
+<li>(d) Implementing security controls is a challenge regardless of the platform. Most businesses are less familiar with the cloud than their local networks.</li>
+<li>(d) Docker contains run as root. To mitigate,  you can choose to modify the dockerfile to ensure they all run as a non-root user, or you can run the docker command with the --user [username] paramenter.<pre class="hljs"><code><div>docker run --user mj ubuntu:latest
+</div></code></pre>
+</li>
+<li>(c) Docker bench security will check host and docker daemon configurations, docker daemon configuration files, container images and build files as well as container run time</li>
+</ol>
+<h3 id="vocabulary">Vocabulary</h3>
+<ul>
+<li><strong>Infrastructure as a Service (IaaS)</strong> - cloud servcie provider (CSP) provides and maintains the hardware, power, HVAC and hardware updates, while the customer is responsible for all virtual resources created, including updating those resources at the operating system level.</li>
+<li><strong>Platform as a Service (PaaS)</strong> -  the CSP takes on more responsibility for things such as patching (which customers are historically terrible at and serves as a primary pathway to security incidents) and maintaining operating systems.</li>
+<li><strong>Software as a Service (SaaS)</strong> - the customer can only make changes within an application’s configuration settings, with the control of everything else being left to the CSP (think of Gmail a basic example).</li>
+<li><strong>Trusted Computing</strong> - Trusted Computing is the simplest method of providing confidence in a platform or computer Trusted Computing enables whoever has an unprotected copy of software or data to state which environment is used to protect that software or data This is the most liberal method of protection</li>
+</ul>
+
+</body>
+</html>
