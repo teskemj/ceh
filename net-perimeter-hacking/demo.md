@@ -1,0 +1,16 @@
+- discuss how to get slowlowris
+- up arrow to git command
+- ls the slowloris folder
+- switch to apache site...refresh to see it's up to speed
+- up arrow to slowloris command
+- discuss the command 
+- return to apache and show its really not slowlorising it.
+- bring up hping3 command and discuss
+    - c is packet count
+    - d is data size
+    - S is syn flood
+    - w is window size
+    - p is port 80
+    - --flood is fire at will as fast as you can...no replies
+    - --rand-source says send random source addresses to the target of 192.168.0.176
+- Refresh browser see if there's latency
