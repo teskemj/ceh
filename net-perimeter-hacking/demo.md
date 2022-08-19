@@ -31,3 +31,20 @@
 14. Call out the TCP segment length is 480 and the next sequence number is 481
 15. Step through the remaining
 16. Make sure to the learner is prepared to do simple math with the relative sequence numbers v the raw sequence numbers...the math is the same.
+
+### Mod4
+ 1. sudo snort -c /etc/snort/snort.conf -l /var/log/snort -A console
+ ping 192.168.0.176
+ show console logging
+ cancel snort
+ exit powershell on right.
+ browse to etc/snort
+ show snort.conf
+ browse to etc/snort/rules
+ tail local.rules
+ https://nmap.org/book/man-bypass-firewalls-ids.html
+ 
+ sudo nmap -f 192.168.0.1
+  sudo nmap -sV 192.168.0.1
+  sudo nmap -sV --script=banner 192.168.0.176
+  
